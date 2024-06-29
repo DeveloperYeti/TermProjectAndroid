@@ -11,6 +11,7 @@ android {
 
 
 
+
     defaultConfig {
         applicationId = "kr.ac.kopo.foodrecommend"
         minSdk = 24
