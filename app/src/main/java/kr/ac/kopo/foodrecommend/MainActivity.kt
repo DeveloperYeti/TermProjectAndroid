@@ -1,5 +1,6 @@
-package kr.ac.kopo.foodrecommend;
+package kr.ac.kopo.foodrecommend
 
+import kr.ac.kopo.foodrecommend.MyListActivity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -13,9 +14,6 @@ class MainActivity : AppCompatActivity() {
     private val imageArray = intArrayOf(R.drawable.kimchi, R.drawable.pizza, R.drawable.blacknoodle)
     private var currentImageIndex = 0
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,17 +25,19 @@ class MainActivity : AppCompatActivity() {
         forwardImg.setImageResource(imageArray[currentImageIndex])
         backendImg.setImageResource(imageArray[currentImageIndex])
 
+        // Button setup
+        val btnMyList: Button = findViewById(R.id.mylist)
+        val btnRecipe: Button = findViewById(R.id.recipe)
 
-        val btn1 : Button = findViewById(R.id.mylist)
-        val btn2 : Button = findViewById(R.id.recipe)
-
-        btn1.setOnClickListener{
+        // Button click listeners
+        btnMyList.setOnClickListener {
             val intent = Intent(this, MyListActivity::class.java)
             startActivity(intent)
         }
 
-        btn2.setOnClickListener{
-            val intent = Intent(this, RecipeActivity::class.java)
+        btnRecipe.setOnClickListener {
+            // RecipeActivity로의 인텐트 설정
+            val intent = Intent(this, kr.ac.kopo.foodrecommend.RecipeActivity::class.java)
             startActivity(intent)
         }
 
@@ -52,26 +52,5 @@ class MainActivity : AppCompatActivity() {
             currentImageIndex = (currentImageIndex - 1 + imageArray.size) % imageArray.size
             forwardImg.setImageResource(imageArray[currentImageIndex])
         }
-
-        // Back button click listener
-        findViewById<View>(R.id.Back).setOnClickListener {
-            onBackPressed()
-        }
-
-        // Home button click listener
-        findViewById<View>(R.id.Home).setOnClickListener {
-            // Navigate to main activity or perform desired action
-            // For simplicity, let's assume it finishes the current activity
-            finish()
-        }
-
-        // Click listener for changing images on left side click
-        findViewById<View>(R.id.prev).setOnClickListener {
-            currentImageIndex = (currentImageIndex + 1) % imageArray.size
-            backendImg.setImageResource(imageArray[currentImageIndex])
-        }
-
-
-
     }
 }

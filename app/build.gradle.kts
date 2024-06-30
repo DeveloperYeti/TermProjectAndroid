@@ -3,14 +3,15 @@ import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+    id("com.google.gms.google-services")
+
 }
+
 
 android {
     namespace = "kr.ac.kopo.foodrecommend"
     compileSdk = 34
-
-
-
 
     defaultConfig {
         applicationId = "kr.ac.kopo.foodrecommend"
@@ -55,4 +56,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.google.firebase:firebase-firestore-ktx:24.5.0")
+    implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    kapt("com.github.bumptech.glide:compiler:4.15.1")
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+    implementation("com.google.firebase:firebase-analytics")
+
+
 }

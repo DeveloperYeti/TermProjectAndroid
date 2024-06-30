@@ -7,7 +7,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="80dp"
+        android:layout_margin="20dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -16,137 +17,68 @@
             android:textSize="40sp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/memo1"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:background="@android:color/white">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/memo1_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="클릭하여 메모 입력"
-            android:gravity="center"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/memo1_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:hint="메모를 입력하세요"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/memo2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:background="@android:color/white">
-
-        <TextView
-            android:id="@+id/memo2_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="클릭하여 메모 입력"
-            android:gravity="center"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/memo2_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:hint="메모를 입력하세요"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/memo3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:background="@android:color/white">
-
-        <TextView
-            android:id="@+id/memo3_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="클릭하여 메모 입력"
-            android:gravity="center"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/memo3_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:hint="메모를 입력하세요"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/memo4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:background="@android:color/white">
-
-        <TextView
-            android:id="@+id/memo4_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="클릭하여 메모 입력"
-            android:gravity="center"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/memo4_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:hint="메모를 입력하세요"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/save_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="저장"
-        android:layout_margin="20dp"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/Back"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/memo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/back"/>
-            <ImageView
-                android:id="@+id/Home"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/home"
-                />
-            <ImageView
-                android:id="@+id/prev"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/prev"/>
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="@android:color/white"
+                android:layout_margin="20dp">
+
+                <TextView
+                    android:id="@+id/memo1_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="클릭하여 메모 입력"
+                    android:gravity="center"
+                    android:textSize="20sp"/>
+
+                <EditText
+                    android:id="@+id/memo1_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:hint="메모를 입력하세요"/>
+            </LinearLayout>
+
+            <!-- Repeat for memo2, memo3, memo4 -->
+
         </LinearLayout>
-    </RelativeLayout>
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/memo_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:padding="10dp"/>
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="저장"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"/>
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="삭제"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"/>
+
 </LinearLayout>
